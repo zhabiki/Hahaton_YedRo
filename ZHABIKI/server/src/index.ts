@@ -18,7 +18,7 @@ const mqttService = new MqttService(
     process.env.MQTT_TOPIC || '',
     {
         port: +(process.env.MQTT_PORT || -1),
-        clientId: process.env.MQTT_CID || '',
+        clientId: `${process.env.MQTT_CID}_index}`,
         username: process.env.MQTT_USER,
         password: process.env.MQTT_PASS,
     },

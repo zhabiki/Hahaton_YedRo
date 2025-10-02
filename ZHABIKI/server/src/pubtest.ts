@@ -2,14 +2,18 @@ import type { SignalData } from './types'
 
 import { MqttService } from './mqtt'
 import { exit } from 'process'
+import dotenv from 'dotenv'
+
 import { getBeacons } from './beacons'
+
+dotenv.config() // .env положить в корень каталога server/
 
 const mqttService = new MqttService(
     process.env.MQTT_ADDR || '',
     process.env.MQTT_TOPIC || '',
     {
         port: +(process.env.MQTT_PORT || -1),
-        clientId: process.env.MQTT_CID || '',
+        clientId: `${process.env.MQTT_CID}_pubtest`,
         username: process.env.MQTT_USER,
         password: process.env.MQTT_PASS,
     },
