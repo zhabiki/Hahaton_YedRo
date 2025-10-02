@@ -1,0 +1,27 @@
+{
+  "name": "hahapon-server",
+  "version": "1.0.0",
+  "description": "",
+  "license": "Apache-2.0",
+  "author": "Чеховский Владимир",
+  "type": "commonjs",
+  "scripts": {
+    "build": "rm -rf dist/* && tsc && cp -r public dist/hahapon-server",
+    "start": "node dist/hahapon-server/src/index.js",
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "pubtest": "ts-node-dev --transpile-only src/pubtest.ts"
+  },
+  "dependencies": {
+    "@types/express": "^5.0.3",
+    "@types/mqtt": "^0.0.34",
+    "@types/neat-csv": "^4.0.0",
+    "@types/node": "^24.6.2",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "mqtt": "^5.14.1",
+    "neat-csv": "^7.0.0"
+  },
+  "devDependencies": {
+    "ts-node-dev": "^2.0.0"
+  }
+}
