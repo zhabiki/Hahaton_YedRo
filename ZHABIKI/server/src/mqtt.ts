@@ -1,4 +1,5 @@
-import type { MqttClient, IClientOptions } from 'mqtt'
+import type MqttClient from 'mqtt'
+import type IClientOptions from 'mqtt'
 import type { SignalData } from './types'
 
 import mqtt from 'mqtt'
@@ -23,7 +24,7 @@ export class MqttService {
             this.subscribe()
         })
 
-        this.client.on('message', (topic, message) => {
+        this.client.on('message', (topic: any, message: any) => {
             const msgStr = message.toString()
             // console.log(`[m] Получено сообщение: ${msgStr}`)
 
@@ -32,8 +33,8 @@ export class MqttService {
             this.onResCallback(this.latestRes)
         })
 
-        this.client.on('error', (error) => {
-            console.error('[m] Ошибка подключения:', error)
+        this.client.on('error', (err: any) => {
+            console.error('[m] Ошибка подключения:', err)
         })
     }
 
@@ -41,7 +42,7 @@ export class MqttService {
         if (!this.client) return
         console.log(`[m] Подключение к топику "${this.topic}"...`)
 
-        this.client.subscribe(this.topic, (err) => {
+        this.client.subscribe(this.topic, (err: any) => {
             if (err) console.error('[m] Не удалось подписаться на топик!')
             else console.log('[m] Соединение установлено.')
         })
