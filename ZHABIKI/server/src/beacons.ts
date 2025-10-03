@@ -4,10 +4,12 @@ import path from 'path'
 import neatCsv from 'neat-csv'
 import fs from 'fs/promises'
 
+const BEACONS_FILENAME = 'beacons_kpa.beacons'
+
 export async function getBeacons(): Promise<BeaconData[]> {
     // console.log(__dirname)
     const file = await fs.readFile(
-        path.resolve(__dirname, 'public/standart.beacons'), 'utf-8'
+        path.resolve(__dirname, `../../data/${BEACONS_FILENAME}`), 'utf-8'
     )
     const data = await neatCsv(file, {
         separator: ';',

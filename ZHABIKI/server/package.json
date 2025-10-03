@@ -6,8 +6,8 @@
   "author": "Чеховский Владимир",
   "type": "commonjs",
   "scripts": {
-    "build": "rm -rf dist/* && tsc && cp -r public dist/hahapon-server",
-    "start": "node dist/hahapon-server/src/index.js",
+    "build": "rm -rf dist/* && tsc && cp -r src/public dist/public",
+    "start": "node dist/index.js",
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "pubtest": "ts-node-dev --transpile-only src/pubtest.ts"
   },
